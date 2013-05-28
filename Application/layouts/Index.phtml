@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PHDays iBank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/css/index.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href="/">PHDays iBank</a>
+                        <div class="pull-right">
+                            <ul class="nav">
+                                <li><a href="/auth/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                        <ul class="nav">
+                            <? if (!isset($controller)) $controller = '' ?>
+
+                            <li class="<? if ($controller == 'account') echo 'active' ?>"><a href="/account">Account</a></li>
+                            <li class="<? if ($controller == 'transactions') echo 'active' ?> dropdown">
+                                <a class="dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   href="/transactions">
+                                    Transactions
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/transactions/create">Start new</a>
+                                    </li>
+                                    <li>
+                                        <a href="/transactions">In process</a>
+                                    </li>
+                                    <li>
+                                        <a href="/transactions/history">History</a>
+                                    </li>
+                                    <li>
+                                        <a href="/transactions/templates">Templates</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="<? if ($controller == 'contacts') echo 'active' ?>"><a href="/contacts">Contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 40px;">
+                <?= $content ?>
+            </div>
+
+            <div id="push"></div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <p class="muted credit">&copy; 2013 PHDays iBank</p>
+            </div>
+        </div>
+
+        <script src="/js/jquery-1.9.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>

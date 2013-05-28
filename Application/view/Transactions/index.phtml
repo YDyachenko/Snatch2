@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <div class="pull-right">
+                <a class="btn btn-success iconfix" href="/transactions/create">
+                    <i class="icon-plus icon-white"></i>Start new
+                </a>
+            </div>
+            <h1>Transactions</h1>
+        </div>
+        <? if (!count($transactions)): ?>
+            <div class="alert">You don't have transactions</div>
+        <? else: ?>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Sum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <? foreach ($transactions as $transaction): ?>
+                        <tr>
+                            <td><?= $transaction->id ?></td>
+                            <td><?= $this->escapeHtml($transaction->accountFrom->number) ?></td>
+                            <td><?= $this->escapeHtml($transaction->accountTo->number) ?></td>
+                            <td>
+                                <div class="pull-right">
+                                    <? if ($transaction->confirmed): ?>
+                                    <a href="/transactions/commit/id/<?= $transaction->id ?>" title="Commit" class="show-on-hover btn btn-mini">
+                                        Commit
+                                    </a>
+                                    <? else: ?>
+                                    <a href="/transactions/confirm/id/<?= $transaction->id ?>" title="Confirm" class="show-on-hover btn btn-mini">
+                                        Confirm
+                                    </a>
+                                    <? endif; ?>
+                                    <a href="/transactions/delete/id/<?= $transaction->id ?>" title="Delete" class="show-on-hover btn btn-danger btn-mini">
+                                        <i class="icon-remove-circle icon-white"></i> Delete
+                                    </a>
+                                </div>
+                                <?= $transaction->sum() ?>
+                            </td>
+                        </tr>
+                    <? endforeach; ?>
+                </tbody>
+            </table>
+        <? endif; ?>
+    </div>
+</div>

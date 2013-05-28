@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PHDays iBank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/css/index.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li>
+                                <a href="/index/switchInterface/">
+                                    <i class="icon-repeat icon-white"></i>
+                                    Switch to mobile version
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <header class="overview">
+                <div class="container">
+                    <h1>PHDays iBank Pro v2</h1>
+                    <p class="lead">
+                        Simple and secure
+                    </p>
+                </div>
+            </header>
+            <div class="container">
+                <?= $content ?>
+            </div>
+
+            <div id="push"></div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <p class="muted credit">
+                    &copy; 2013 PHDays iBank
+                </p>
+            </div>
+        </div>
+
+        <script src="/js/jquery-1.9.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>

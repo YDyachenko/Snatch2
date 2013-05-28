@@ -1,0 +1,26 @@
+.btn.iconfix i[class^=icon] {
+    margin-right: 5px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    margin-right: 4px;
+}
+
+.btn-file input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+}
+
+table.transaction-templates tr td:last-child {
+    white-space: nowrap;
+}

@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <div class="pull-right">
+                <a href="/auth/changePassword" class="btn">
+                    Change password
+                </a>
+            </div>
+            <h1>Information</h1>
+        </div>
+        <dl class="dl-horizontal">
+            <dt>Login</dt>
+            <dd><?= $this->escapeHtml($user->login) ?></dd>
+            <dt>Email</dt>
+            <dd><?= $this->escapeHtml($user->email) ?></dd>
+            <dt>Phone</dt>
+            <dd><?= $this->escapeHtml($user->phone) ?></dd>
+            <dt>First name</dt>
+            <dd><?= $this->escapeHtml($user->first_name) ?></dd>
+            <dt>Last name</dt>
+            <dd><?= $this->escapeHtml($user->last_name) ?></dd>
+        </dl>
+        <h3>Accounts</h3>
+        <? if (!count($accounts)): ?>
+        <div class="alert">You don't have accounts</div>
+        <? else: ?>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <? foreach ($accounts as $account): ?>
+                    <tr>
+                        <td><?= $this->escapeHtml($account->number) ?></td>
+                        <td><?= $account->balance() ?></td>
+                    </tr>
+                <? endforeach; ?>
+            </tbody>
+        </table>
+        <? endif; ?>
+        <h3>Active services</h3>
+        <? if (!count($services)): ?>
+        <div class="alert">You don't have active services</div>
+        <? else: ?>
+        <table class="table table-striped">
+            <tbody>
+                <? foreach ($services as $service): ?>
+                    <tr>
+                        <td class="span1"><i class="icon-ok"></i></td>
+                        <td><?= $this->escapeHtml($service->name) ?></td>
+                    </tr>
+                <? endforeach; ?>
+            </tbody>
+        </table>
+        <? endif; ?>
+    </div>
+</div>

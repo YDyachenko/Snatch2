@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <h1>Balance status</h1>
+        </div>
+        <table class="table table-striped">
+            <? foreach ($users as $user): ?>
+            <tr>
+                <td>
+                    <?= $this->escapeHtml($user['login']); ?>
+                </td>
+                <td>
+                    <?= round($user['balance'], 2); ?> RUB
+                </td>
+            </tr>
+            <? endforeach; ?>
+            <tr>
+                <td>
+                    Other users
+                </td>
+                <td>
+                    <?= round($other, 2); ?> RUB
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

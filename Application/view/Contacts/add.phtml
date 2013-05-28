@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <h1>Adding contact</h1>
+        </div>
+        <form class="form-horizontal" method="post">
+            <div class="control-group">
+                <label class="control-label" for="inputName">Name</label>
+                <div class="controls">
+                    <input name="name" type="text" id="inputName" placeholder="Name">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputAccount">Account</label>
+                <div class="controls">
+                    <input name="account" type="text" id="inputAccount" placeholder="Account">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputDescription">Description</label>
+                <div class="controls">
+                    <textarea name="description" id="inputDescription" placeholder="Description" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn" onclick="history.go(-1); return false;">Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

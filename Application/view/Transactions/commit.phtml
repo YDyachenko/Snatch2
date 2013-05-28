@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <h1>Commit transaction</h1>
+        </div>
+        <dl class="dl-horizontal">
+            <dt>From</dt>
+            <dd><?= $this->escapeHtml($accountFrom->number) ?></dd>
+            <dt>To</dt>
+            <dd><?= $this->escapeHtml($accountTo->number) ?></dd>
+            <dt>Sum</dt>
+            <dd><?= $transaction->sum() ?></dd>
+            <dd style="margin-top: 20px;">
+                <a href="/transactions/process/id/<?= $transaction->id ?>/" class="btn btn-primary">Commit</a>
+                <a href="/transactions/delete/id/<?= $transaction->id ?>/" class="btn btn-danger">Delete</a>
+            </dd>
+            
+        </dl>
+
+    </div>
+</div>

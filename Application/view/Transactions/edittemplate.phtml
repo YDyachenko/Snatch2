@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <h1>Edit transaction template</h1>
+        </div>
+        <form class="form-horizontal" method="post">
+            <div class="control-group">
+                <label class="control-label" for="inputName">Name</label>
+                <div class="controls">
+                    <input name="name" type="text" id="inputName" value="<?= $this->escapeHtml($template->name) ?>">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputFrom">From</label>
+                <div class="controls">
+                    <input name="from" type="text" id="inputFrom" value="<?= $this->escapeHtml($template->account_from) ?>">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputTo">To</label>
+                <div class="controls">
+                    <input name="to" type="text" id="inputTo" value="<?= $this->escapeHtml($template->account_to) ?>">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputSum">Sum</label>
+                <div class="controls">
+                    <div class="input-append">
+                    <input name="sum" type="text" id="inputSum" value="<?= $this->escapeHtml($template->sum) ?>">
+                    <span class="add-on">RUB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn" onclick="history.go(-1); return false;">Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="span12">
+        <form class="form-horizontal" method="post">
+            <div class="control-group <? if(!empty($loginError)) echo 'error' ?>">
+                <label class="control-label" for="inputLogin">Login</label>
+                <div class="controls">
+                    <input type="text" name="login" id="inputLogin" placeholder="Login" value="<? if(!empty($login)) echo $this->escapeHtml($login) ?>" autofocus="true">
+                    <? if(!empty($loginError)): ?>
+                    <span class="help-inline">User not found</span>
+                    <? endif; ?>
+                </div>
+            </div>
+            <div class="control-group <? if(!empty($pwdError)) echo 'error' ?>">
+                <label class="control-label" for="inputPassword">Password</label>
+                <div class="controls">
+                    <input type="password" name="password" id="inputPassword" placeholder="Password">
+                    <? if(!empty($pwdError)): ?>
+                    <span class="help-inline">Wrong password</span>
+                    <? endif; ?>
+                </div>
+            </div>
+            <? if(!$mobile): ?>
+            <div class="control-group <? if(!empty($captchaError)) echo 'error' ?>">
+                <label class="control-label" for="inputCaptcha"><img src="/auth/captcha/"></label>
+                <div class="controls">
+                    <input type="text" name="captcha" id="inputCaptcha">
+                    <? if(!empty($captchaError)): ?>
+                    <span class="help-inline">Wrong code</span>
+                    <? endif; ?>
+                </div>
+            </div>
+            <? endif; ?>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

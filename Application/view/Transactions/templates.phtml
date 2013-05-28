@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <div class="pull-right">
+                <a class="btn btn-success iconfix" href="/transactions/addTemplate">
+                    <i class="icon-plus icon-white"></i>Add
+                </a>
+            </div>
+            <h1>Transaction templates</h1>
+        </div>
+        <? if (!count($templates)): ?>
+            <div class="alert">You havn't added any template</div>
+        <? else: ?>
+            <table class="table table-striped transaction-templates">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Sum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <? foreach ($templates as $template): ?>
+                        <tr>
+                            <td><?= $this->escapeHtml($template->name) ?></td>
+                            <td><?= $this->escapeHtml($template->account_from) ?></td>
+                            <td><?= $this->escapeHtml($template->account_to) ?></td>
+                            <td>
+                                <div class="pull-right">
+                                    <a href="/transactions/startFromTemplate/id/<?= $template->id ?>" title="Edit" class="show-on-hover btn btn-mini">
+                                        <i class="icon-play"></i> Start
+                                    </a>
+                                    <a href="/transactions/editTemplate/id/<?= $template->id ?>" title="Edit" class="show-on-hover btn btn-mini">
+                                        <i class="icon-edit"></i> Edit
+                                    </a>
+                                    <a href="/transactions/deleteTemplate/id/<?= $template->id ?>" title="Delete" class="show-on-hover btn btn-danger btn-mini">
+                                        <i class="icon-remove-circle icon-white"></i> Delete
+                                    </a>
+                                </div>
+                                <?= $template->sum() ?>
+                            </td>
+                        </tr>
+                    <? endforeach; ?>
+                </tbody>
+            </table>
+        <? endif; ?>
+    </div>
+</div>

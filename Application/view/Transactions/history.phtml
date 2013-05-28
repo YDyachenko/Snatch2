@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <h1>History</h1>
+        </div>
+        <? if (!count($transactions)): ?>
+            <div class="alert">You don't have transactions</div>
+        <? else: ?>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Sum</th>
+                        <th>Date <i class="icon-chevron-down"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <? foreach ($transactions as $transaction): ?>
+                        <tr>
+                            <td><?= $transaction->id ?></td>
+                            <td><?= $this->escapeHtml($transaction->accountFrom->number) ?></td>
+                            <td><?= $this->escapeHtml($transaction->accountTo->number) ?></td>
+                            <td>
+                                <?= $transaction->accountFrom->user_id == $user->id ? '-' : '+' ?>
+                                <?= $transaction->sum() ?>
+                            </td>
+                            <td><?= $this->escapeHtml($transaction->date) ?></td>
+                        </tr>
+                    <? endforeach; ?>
+                </tbody>
+            </table>
+        <? endif; ?>
+    </div>
+</div>

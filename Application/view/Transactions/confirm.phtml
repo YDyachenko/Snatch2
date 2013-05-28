@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <h1>Confirm transaction</h1>
+        </div>
+        <dl class="dl-horizontal">
+            <dt>From</dt>
+            <dd><?= $this->escapeHtml($accountFrom->number) ?></dd>
+            <dt>To</dt>
+            <dd><?= $this->escapeHtml($accountTo->number) ?></dd>
+            <dt>Sum</dt>
+            <dd><?= $transaction->sum() ?></dd>
+            
+        </dl>
+        <form class="form-horizontal" method="post">
+            <div class="control-group <? if(!empty($error)) echo 'error' ?>">
+                <label class="control-label" for="inputOtp">
+                    <? if ($otpMethod == 'tan'): ?>
+                    Password #<?= $tan->id ?>
+                    <? else: ?>
+                    SMS code
+                    <? endif; ?>
+                </label>
+                <div class="controls">
+                    <input name="otp" type="text" id="inputOtp">
+                    <? if(!empty($error)): ?>
+                    <span class="help-inline">Wrong password</span>
+                    <? endif; ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                    <a href="/transactions/delete/id/<?= $transaction->id ?>/" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

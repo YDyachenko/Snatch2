@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <div class="pull-right">
+                <a class="btn btn-success iconfix" href="/contacts/add">
+                    <i class="icon-plus icon-white"></i>Add
+                </a>
+                <a class="btn iconfix" href="/contacts/export">
+                    <i class="icon-download"></i>Export
+                </a>
+            </div>
+            <h1>Accounts</h1>
+        </div>
+        
+        <? if(!count($contacts)): ?>
+        <div class="alert">You havn't added any account</div>
+        <? else: ?>
+        <table class="table table-striped contacts">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Account number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <? foreach ($contacts as $contact): ?>
+                    <tr>
+                        <td><?= $this->escapeHtml($contact->name) ?></td>
+                        <td>
+                            <div class="pull-right">
+                                <a href="/contacts/edit/id/<?= $contact->id ?>" title="Edit" class="show-on-hover btn btn-mini">
+                                    <i class="icon-edit"></i> Edit
+                                </a>
+                                <a href="/contacts/delete/id/<?= $contact->id ?>" title="Delete" class="show-on-hover btn btn-danger btn-mini">
+                                    <i class="icon-remove-circle icon-white"></i> Delete
+                                </a>
+                            </div>
+                            <?= $this->escapeHtml($contact->account) ?>
+                        </td>
+                    </tr>
+                <? endforeach; ?>
+            </tbody>
+        </table>
+        <? endif; ?>
+        
+        <div class="pull-right">
+            <form class="form-inline" name="importContacts" action="/contacts/import" method="post" enctype="multipart/form-data">
+                <div class="control-group">
+                    <div class="controls clearfix">
+                        <span class="btn btn-success btn-file iconfix">
+                            <i class="icon-upload icon-white"></i><span>Import</span>
+                            <input type="file" name="contacts" onchange="importContacts.submit();">
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

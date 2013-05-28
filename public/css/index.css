@@ -1,0 +1,81 @@
+html,
+body {
+    height: 100%;
+}
+
+.overview {
+    background-color: rgb(78, 188, 241);
+    background: linear-gradient(45deg, rgb(78, 188, 241) 0px, rgb(45, 109, 139) 100%) transparent;
+    box-shadow: inset 0px 3px 7px rgba(0, 0, 0, 0.196), inset 0px -3px 7px rgba(0, 0, 0, 0.196);
+    color: #FFFFFF;
+    padding: 40px 0px;
+    position: relative;
+    padding-top: 80px;
+    margin-bottom: 20px;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.400), 0px 0px 30px rgba(0, 0, 0, 0.071);
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -61px;
+}
+
+#push,
+#footer {
+    height: 60px;
+}
+
+#footer {
+    background-color: #F5F5F5;
+    border-top: 1px #E5E5E5 solid;
+}
+
+#footer .container .credit {
+    margin: 20px 0;
+}
+
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.btn.iconfix i[class^=icon] {
+    margin-right: 5px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    margin-right: 4px;
+}
+
+.btn-file input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+}
+
+table .show-on-hover {
+    visibility: hidden;
+}
+
+table tr:hover .show-on-hover {
+    visibility: visible;
+}
+
+table.transaction-templates tr td:last-child {
+    white-space: nowrap;
+}

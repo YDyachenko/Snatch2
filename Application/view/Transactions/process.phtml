@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="span12">
+        <div class="page-header">
+            <h1>Process transaction</h1>
+        </div>
+        <? if (!empty($error)): ?>
+        <div class="alert alert-error">
+            <? if ($error == 'InsufficientFunds'): ?>
+            Not enough funds for transaction
+            <? endif; ?>
+        </div>
+        <a class="btn" href="#" onclick="history.go(-1); return false;">
+            <i class="icon-arrow-left"></i>
+            Go back
+        </a>
+        <? endif; ?>
+
+    </div>
+</div>
